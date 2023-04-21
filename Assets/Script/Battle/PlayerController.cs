@@ -148,10 +148,17 @@ public class PlayerController : MonoBehaviour
 
     public void PaintPlayer()
     {
-        StartCoroutine(DamageEffectSequence(boi, Color.red, 2, 0.01f));
+        boi.color = Color.red;
+        Invoke("RestorePlayer", 0.05f);
+        //StartCoroutine(DamageEffectSequence(boi, Color.red, 2, 0.01f));
     }
 
-    public IEnumerator DamageEffectSequence(SpriteRenderer sr, Color dmgColor, float duration, float delay)
+    public void RestorePlayer()
+    {
+        boi.color = Color.white; 
+    }
+
+   /* public IEnumerator DamageEffectSequence(SpriteRenderer sr, Color dmgColor, float duration, float delay)
     {
         // save origin color
 
@@ -174,7 +181,7 @@ public class PlayerController : MonoBehaviour
 
         // restore origin color
         sr.color = originColor;
-    }
+    }*/
 
 
 
